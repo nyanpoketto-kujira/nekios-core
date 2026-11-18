@@ -15,6 +15,8 @@
 library;
 
 export 'src/codec.dart';
+export 'src/klien.dart';
 export 'src/konstanta.dart';
 export 'src/paket.dart';
+export 'src/server.dart';
 export 'src/tipe_paket.dart';
