@@ -1,0 +1,18 @@
+name: nekios_core
+description: >-
+  Paket protokol bersama ekosistem Nekios: envelope paket, codec, konstanta
+  tipe paket, dan helper WebSocket untuk komunikasi antara nekios-remote
+  (pengendali) dan display Nekios (nekios-school, kelak nekios-mosque).
+  Dart murni tanpa Flutter — bisa dipakai aplikasi Flutter maupun CLI Dart.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.13.3
+
+dependencies:
+  web_socket_channel: ^3.0.3
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.26.0

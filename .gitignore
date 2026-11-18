@@ -1,0 +1,15 @@
+# Berkas hasil build & metadata tool Dart/Flutter
+.dart_tool/
+.packages
+build/
+doc/api/
+pubspec.lock
+
+# IDE / editor
+.idea/
+.vscode/
+*.iml
+
+# Sistem operasi
+.DS_Store
+Thumbs.db
