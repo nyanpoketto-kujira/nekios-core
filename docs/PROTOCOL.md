@@ -43,12 +43,14 @@ Setiap paket adalah objek JSON:
 | `clock.clear` | — | Akhiri simulasi; kembali ke jam sistem. |
 | `logo.set` | `{ "imageBase64": String }` | Pasang/ganti logo display (gambar ter-encode base64). |
 | `ping` | — | Cek hidup; display membalas `ack` dan/atau `state.snapshot`. |
+| `audio.konfigurasi` | `{ "belAktif": bool }` | Atur saklar bel sekolah di display (tersimpan persisten di display). Display membalas `ack` + `state.snapshot`. |
+| `audio.tes` | — | Display memutar pengumuman bel untuk slot yang sedang berjalan (uji suara). Selalu diputar, juga saat `belAktif` nonaktif. Display membalas `ack`. |
 
 ### 3.2 Balasan — display → remote
 
 | Tipe | Payload | Makna |
 | --- | --- | --- |
-| `state.snapshot` | objek keadaan | Potret keadaan display (status, jam efektif, mading, simulasi aktif). Bentuk rinci dimiliki nekios-school sebagai pemilik keadaan. |
+| `state.snapshot` | objek keadaan | Potret keadaan display (status, jam efektif, mading, simulasi aktif). Bentuk rinci dimiliki nekios-school sebagai pemilik keadaan. Sejak fitur bel (2026-11-19) snapshot display sekolah juga memuat `belAktif` (bool) dan `belTerakhir` (`{ "berkas": String, "pada": String ISO-8601 }` atau null — pengumuman bel terakhir yang diputar beserta waktu efektifnya). |
 | `ack` | `{ "ofType": String }` (opsional) | Perintah diterima & dijalankan. |
 | `error` | `{ "message": String }` | Perintah gagal dijalankan; `message` untuk log/tampilan. |
 

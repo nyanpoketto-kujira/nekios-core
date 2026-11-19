@@ -19,7 +19,16 @@ void main() {
         TipePaket.semua,
         {...TipePaket.perintah, ...TipePaket.balasan},
       );
-      expect(TipePaket.semua, hasLength(9));
+      expect(TipePaket.semua, hasLength(11));
+    });
+
+    test('tipe audio bel adalah perintah yang dikenal (2026-11-19)', () {
+      expect(TipePaket.audioKonfigurasi, 'audio.konfigurasi');
+      expect(TipePaket.audioTes, 'audio.tes');
+      expect(TipePaket.perintah, contains(TipePaket.audioKonfigurasi));
+      expect(TipePaket.perintah, contains(TipePaket.audioTes));
+      expect(TipePaket.dikenal(TipePaket.audioKonfigurasi), isTrue);
+      expect(TipePaket.dikenal(TipePaket.audioTes), isTrue);
     });
 
     test('dikenal() mengenali tipe v1 dan menolak selainnya', () {
