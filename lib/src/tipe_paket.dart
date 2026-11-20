@@ -34,6 +34,15 @@ abstract final class TipePaket {
   /// Cek hidup koneksi. Display membalas `ack` dan/atau `state.snapshot`.
   static const String ping = 'ping';
 
+  /// Atur saklar bel sekolah di display. Payload: `{ "belAktif": bool }`.
+  /// Display membalas `ack` + `state.snapshot` dengan keadaan terbaru.
+  static const String audioKonfigurasi = 'audio.konfigurasi';
+
+  /// Minta display memutar pengumuman bel untuk slot yang sedang berjalan
+  /// (uji suara dari remote). Payload: `{}`. Selalu diputar, juga saat
+  /// belAktif nonaktif — ini uji manual yang disengaja.
+  static const String audioTes = 'audio.tes';
+
   // --- Balasan: display → remote --------------------------------------------
 
   /// Potret keadaan display saat ini (status, jam efektif, teks mading,
@@ -56,6 +65,8 @@ abstract final class TipePaket {
     clockClear,
     logoSet,
     ping,
+    audioKonfigurasi,
+    audioTes,
   };
 
   /// Semua tipe balasan (display → remote).
